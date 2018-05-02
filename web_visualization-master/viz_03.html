@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="stylesheet" type="text/css" href="./css/bootswatch_solar.css">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+<body id="viz">
+
+<!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="./index.html">Equator WeatherPy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="nav navbar-nav ml-auto">
+
+        <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+            <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
+              <a class="dropdown-item" href="./viz_01.html">Max Temperature</a>
+              <a class="dropdown-item" href="./viz_02.html">Humidity</a>
+              <a class="dropdown-item" href="./viz_03.html">Cloudiness</a>
+              <a class="dropdown-item" href="./viz_04.html">Wind Speed</a>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./comp.html">Comparison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./data.html">Data</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+<!-- Main Content -->
+  <div id="wrapper" class="container-fluid">
+
+    <!-- Cards -->
+    <div class="row mt-4 mb-2">
+
+      <div id="viz_left_card" class="card bg-light mx-auto my-2">
+        <div class="card-header">Cloudiness</div>
+        <div class="card-body pt-0">
+          <div class="container-fluid">
+            <div class="row mx-auto">
+              <div class="col-sm mt-4">
+                <a href="./viz_01.html"><img class="img-fluid" src="./images/cloudiness.png"></a>
+                </br>
+                </br>
+                <p>This chart shows a fairly even distributed amount of cloudiness around the world. Although there is a little bit more accumlation at areas near the poles (90 Deg Latitude and -90 Deg Latitude). The reason for this may be due to high air pressure in those regions allowing for clouds to accumlate whereas in the rest of the world the air pressure fluctuates causing clouds to disperse.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="viz_right_card" class="card bg-light mx-auto my-2 h-50">
+        <div class="card-header">VISUALIZATIONS</div>
+        <div class="card-body">
+          <div class="container-fluid">
+            <div class="row mx-auto">
+              <div class="col-sm">
+                <a href="./viz_01.html"><img src="./images/max_temp.png"></a>
+              </div>
+              <div class="col-sm">
+                <a href="./viz_02.html"><img src="./images/humidity.png"></a>
+              </div>
+            </div>
+            </br>
+            <div class="row mx-auto">
+              <div class="col-sm">
+                <a href="./viz_03.html"><img src="./images/cloudiness.png"></a>
+              </div>
+              <div class="col-sm">
+                <a href="./viz_04.html"><img src="./images/wind_speed.png"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  <!-- End Cards -->
+
+
+
+  </div>
+
+
+
+
+<!-- Footer -->
+  <footer class="bg-light mt-2 footer">
+      <p class="mb-0"><i class="far fa-copyright"></i> scottcole.com 2018 <a href="mailto:scottander.cole@gmail.com">
+      email </a>| <a href="https://github.com/cole/equator_weatherpy_analysis">code </a>| <a href="https://github.com/cole/web_visualization">dir</a></p>
+  </footer>
+
+</body>
+</html>

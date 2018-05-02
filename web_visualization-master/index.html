@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <link rel="stylesheet" type="text/css" href="./css/bootswatch_solar.css">
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</head>
+<body id="index">
+
+<!-- Navbar -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="./index.html">Equator WeatherPy</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="nav navbar-nav ml-auto">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Plots</a>
+            <div class="dropdown-menu" x-placement="bottom-start">
+              <a class="dropdown-item" href="./viz_01.html">Max Temperature</a>
+              <a class="dropdown-item" href="./viz_02.html">Humidity</a>
+              <a class="dropdown-item" href="./viz_03.html">Cloudiness</a>
+              <a class="dropdown-item" href="./viz_04.html">Wind Speed</a>
+            </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./comp.html">Comparison</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./data.html">Data</a>
+        </li>
+      </ul>
+
+    </div>
+  </nav>
+
+<!-- Main Content -->
+  <div id="wrapper" class="container-fluid">
+
+<!-- <div id="viz_right_card" class="card bg-light mx-auto my-2 h-50"> -->
+  <!-- Cards -->
+    <div class="row mt-4 mx-0">
+      <div class="col-lg-8">
+        <div class="row">
+
+          <div class="col-lg-12 mt-2">
+            <div id="left_card" class="card bg-light">
+              <div class="card-header">SUMMARY</div>
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="row mx-auto">
+                    <p class="card-text">
+                      <a href="./viz_01.html">
+                        <img class="mr-3 img-fluid" src="./images/max_temp.png">
+                      </a>
+                      The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis I pulled data from the OpenWeatherMap API to assemble a dataset on over 500 cities.
+                    </br>
+                    </br>
+                      After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs the latitude geolocation. Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div id="left_card" class="card bg-light my-4">
+              <div class="card-header">WORLD MAP: Randomly Chosen Cities for Analysis</div>
+              <div class="card-body">
+                <div class="container-fluid">
+                  <div class="row mx_auto">
+                    <div class="col-sm-12 h-50">
+                      <p class="card-text">
+                        <a href="./data.html">
+                          <img class="mr-3 img-fluid" src="./images/basemap_cities.png" style="width: 350px; height: 300px;">
+                        </a>
+                        For this project I randomly selected 500 &lt; &nbsp;x &nbsp;&lt; &nbsp;700 cities from around the world using the following python code to produce latitude and longitude geolocations:
+                        </br>
+                        </br>
+
+  <pre data-lang="Python 3.6.2"><code>>>> import numpy as np
+
+>>> lat_coord = np.random.uniform(-90,91,700)
+>>> lng_coord = np.random.uniform(-180,181,700)
+  </code></pre>
+                        </br>
+                        I then used those coordinates to find the nearest city and produce data for those cities, here is the code used to find those cities:
+                        </br>
+                        </br>
+
+  <pre data-lang="Python 3.6.2" ><code>>>> import pandas as pd
+>>> from citipy import citipy
+
+>>> weather_df = pd.DataFrame()
+>>> weather_df['city_name'] = ''
+>>> weather_df['country_code'] = ''
+
+>>> for i in bar(range(len(lat_coord))):
+...    weather_df.set_value(i,'city_name',citipy.nearest_city(lat_coord[i], lng_coord[i]).city_name)
+...    weather_df.set_value(i,'country_code',citipy.nearest_city(lat_coord[i], lng_coord[i]).country_code)
+
+  </code></pre>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-lg-4 mt-2">
+
+          <div id="right_card" class="card bg-light">
+            <div class="card-header">VISUALIZATIONS</div>
+            <div class="card-body">
+              <div class="container-fluid">
+                <div class="row mx-auto">
+                  <div class="col-sm-6">
+                    <a href="./viz_01.html"><img class="my-2 img-fluid mx-auto d-block" src="./images/max_temp.png"></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="./viz_02.html"><img class="my-2 img-fluid mx-auto d-block" src="./images/humidity.png"></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="./viz_03.html"><img class="my-2 img-fluid mx-auto d-block" src="./images/cloudiness.png"></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="./viz_04.html"><img class="my-2 img-fluid mx-auto d-block" src="./images/wind_speed.png"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- End Cards -->
+
+
+
+
+<!-- Footer -->
+  <footer class="bg-light mt-2 footer">
+      <p class="mb-0"><i class="far fa-copyright"></i> ScottCole 2018 <a href="mailto:scottjcole@gmail.com">
+      email </a>| <a href="https://github.com/Cole/equator_weatherpy_analysis">code </a>| <a href="https://github.com/Cole/web_visualization">dir</a></p>
+  </footer>
+
+</body>
+</html>
